@@ -53,12 +53,13 @@
   }
   .app-card:hover { box-shadow: 0 6px 28px rgba(91,79,204,0.1); transform: translateY(-2px); }
   .app-icon {
-    width: 68px; height: 68px; border-radius: 16px;
-    background: var(--grad);
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0; font-size: 30px;
-    box-shadow: 0 4px 16px rgba(91,79,204,0.28);
-  }
+  width: 68px;
+  height: 68px;
+  border-radius: 16px;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 4px 16px rgba(91,79,204,0.28);
+}
   .app-info h3 { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
   .app-info p { font-size: 14px; color: var(--text-muted); margin-bottom: 14px; line-height: 1.65; }
   .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
@@ -79,6 +80,12 @@
   .about-info .role { font-family: var(--mono); font-size: 12px; color: var(--purple); font-weight: 500; margin-bottom: 12px; }
   .about-info p { font-size: 14px; color: var(--text-muted); line-height: 1.75; }
   @media (max-width:600px) { .app-card { flex-direction:column; } .about-card { flex-direction:column; } }
+  .app-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+}
 </style>
 </head>
 <body>
@@ -108,7 +115,10 @@
   <div class="section-title">What I've built</div>
   <div class="section-sub">Educational iOS games designed for children</div>
   <a href="apps/english-match/index.html" class="app-card">
-    <div class="app-icon">📚</div>
+    <div class="app-icon">
+  <img src="apps/english-match/newAppLogo.jpg" alt="English Opposite App" class="app-image" />
+</div>
+    
     <div class="app-info">
       <h3>English Opposite – Antonyms Match</h3>
       <p>A vocabulary game for children aged 5–8. Kids learn antonyms by matching words with their opposites through fun guided gameplay. Includes a Parent Dashboard to track progress — stored privately on your device only.</p>
