@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>English Opposite – Antonyms Match | neura-mob</title>
+<meta name="description" content="A vocabulary game for children aged 4–8. Match English words with their opposites. Free to download on iOS." />
+<link rel="icon" type="image/png" href="../../neura-mob-logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css" />
+<style>
+  .app-hero {
+    background: var(--navy);
+    padding: 60px 6% 52px;
+    position: relative; overflow: hidden;
+  }
+  .app-hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 5% 50%, rgba(43,127,221,0.14) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .app-hero-inner { max-width: 900px; margin: 0 auto 32px; display: flex; gap: 28px; align-items: center; flex-wrap: wrap; position: relative; z-index: 1; }
+  .app-hero-icon { width: 90px; height: 90px; border-radius: 22px; background: var(--grad); display: flex; align-items: center; justify-content: center; font-size: 44px; flex-shrink: 0; box-shadow: 0 8px 30px rgba(91,79,204,0.4); }
+  .app-hero-text h1 { color: #fff; font-size: clamp(20px, 3.5vw, 28px); font-weight: 700; margin-bottom: 6px; letter-spacing: -0.3px; }
+  .app-hero-text .subtitle { color: rgba(255,255,255,0.45); font-size: 13px; font-family: var(--mono); }
+  .hero-btns { max-width: 900px; margin: 0 auto; display: flex; gap: 12px; flex-wrap: wrap; position: relative; z-index: 1; }
+  .btn-appstore { display: inline-flex; align-items: center; gap: 9px; background: #fff; color: var(--navy); padding: 12px 22px; border-radius: var(--radius-sm); font-size: 14px; font-weight: 700; transition: opacity 0.15s, transform 0.15s; }
+  .btn-appstore:hover { opacity: 0.9; transform: translateY(-1px); }
+  .btn-ghost { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.75); padding: 12px 22px; border-radius: var(--radius-sm); font-size: 14px; font-weight: 500; border: 1px solid rgba(255,255,255,0.14); transition: background 0.15s; }
+  .btn-ghost:hover { background: rgba(255,255,255,0.15); }
+
+  .section { padding: 52px 6%; max-width: 900px; margin: 0 auto; }
+
+  .age-banner { background: linear-gradient(135deg, #EEEDFE, #E6F1FB); border: 1px solid #CECBF6; border-radius: var(--radius); padding: 24px 28px; display: flex; gap: 18px; align-items: center; }
+  .age-banner .emoji { font-size: 40px; flex-shrink: 0; }
+  .age-banner h3 { font-size: 16px; font-weight: 700; margin-bottom: 5px; color: #2A2580; }
+  .age-banner p { font-size: 14px; color: #4A47A0; line-height: 1.65; }
+
+  .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; }
+  .feature-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; transition: box-shadow 0.15s; }
+  .feature-card:hover { box-shadow: 0 4px 18px rgba(0,0,0,0.07); }
+  .feature-card .icon { font-size: 28px; margin-bottom: 12px; display: block; }
+  .feature-card h4 { font-size: 14px; font-weight: 700; margin-bottom: 5px; }
+  .feature-card p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+  .packs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; }
+  .pack-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; }
+  .pack-card.free-pack { border-color: #1D9E75; background: #F4FBF7; }
+  .pack-badge { display: inline-block; font-size: 11px; font-weight: 700; font-family: var(--mono); padding: 3px 10px; border-radius: 20px; margin-bottom: 12px; letter-spacing: 0.5px; text-transform: uppercase; }
+  .badge-free { background: #D3F0E1; color: #1B6B44; }
+  .badge-paid { background: #EEEDFE; color: #3C3489; }
+  .pack-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 5px; }
+  .pack-card p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+  .pack-price { font-size: 15px; font-weight: 700; margin-top: 10px; }
+  .pack-price.is-free { color: #1D9E75; }
+  .pack-price.is-paid { color: var(--purple); }
+
+  .screenshots-row { display: flex; gap: 14px; overflow-x: auto; padding-bottom: 8px; }
+  .screenshot-ph { width: 126px; height: 220px; flex-shrink: 0; background: var(--white); border: 1px solid var(--border); border-radius: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
+  .screenshot-ph .ph-icon { font-size: 30px; }
+  .screenshot-ph span { font-size: 11px; color: var(--text-muted); font-family: var(--mono); }
+  .screenshot-note { font-size: 12px; color: var(--text-muted); margin-top: 10px; font-style: italic; }
+
+  .privacy-strip { background: #EEEDFE; border: 1px solid #CECBF6; border-radius: var(--radius); padding: 20px 24px; display: flex; gap: 14px; align-items: flex-start; }
+  .privacy-strip .icon { font-size: 26px; flex-shrink: 0; margin-top: 2px; }
+  .privacy-strip h4 { font-size: 15px; font-weight: 700; color: #2A2580; margin-bottom: 4px; }
+  .privacy-strip p { font-size: 13px; color: #4A47A0; line-height: 1.65; }
+  .privacy-strip a { color: var(--purple); font-weight: 600; }
+
+  @media (max-width:600px) { .app-hero-inner { flex-direction:column; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../index.html" class="nav-brand">
+    <img src="../../neura-mob-logo.png" alt="neura-mob" class="nav-logo" />
+    neura-mob
+  </a>
+  <div class="nav-links">
+    <a href="../../index.html">Home</a>
+    <a href="" class="active">Apps</a>
+    <a href="../../contact.html">Contact</a>
+  </div>
+</nav>
+
+<div class="app-hero">
+  <div class="app-hero-inner">
+    <div class="app-hero-icon">📚</div>
+    <div class="app-hero-text">
+      <h1>English Opposite – Antonyms Match</h1>
+      <div class="subtitle">Word game · iOS · Ages 4–8 · Free to download · by Nadimbhai Sheikh, neura-mob</div>
+    </div>
+  </div>
+  <div class="hero-btns">
+    <!-- ✏️ Replace href with your real App Store link -->
+    <a href="https://apps.apple.com" class="btn-appstore">🍎 Download on App Store</a>
+    <a href="privacy-policy.html" class="btn-ghost">🔒 Privacy policy</a>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">About</div>
+  <div class="section-title">What is English Opposite?</div>
+  <div class="age-banner">
+    <div class="emoji">👧🧒</div>
+    <div>
+      <h3>Designed for children aged 4 to 8</h3>
+      <p>A fun, safe, and educational vocabulary game where children learn English antonyms (opposites) through guided matching gameplay. Built with children's privacy and safety as the top priority — no ads, no tracking, no internet required.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="padding-top:0;">
+  <div class="section-label">Features</div>
+  <div class="section-title">What's inside</div>
+  <div class="features-grid">
+    <div class="feature-card"><span class="icon">🧠</span><h4>Vocabulary builder</h4><p>Children learn antonyms through fun, intuitive matching gameplay</p></div>
+    <div class="feature-card"><span class="icon">👨‍👩‍👧</span><h4>Parent Dashboard</h4><p>Track progress, mastered words, and difficult words — stored locally, never uploaded</p></div>
+    <div class="feature-card"><span class="icon">🔒</span><h4>Privacy first</h4><p>No data collection, no ads, no third-party SDKs. Works fully offline.</p></div>
+    <div class="feature-card"><span class="icon">🛡️</span><h4>Parental gate</h4><p>Purchases and settings protected so only adults can access them</p></div>
+    <div class="feature-card"><span class="icon">📴</span><h4>Works offline</h4><p>No internet needed. Play anywhere, anytime.</p></div>
+    <div class="feature-card"><span class="icon">🌍</span><h4>COPPA compliant</h4><p>Meets children's privacy standards for US, EU, and global app stores</p></div>
+  </div>
+</div>
+
+<div class="section" style="padding-top:0;">
+  <div class="section-label">Screenshots</div>
+  <div class="section-title">See it in action</div>
+  <!--
+    ✏️ TO ADD REAL SCREENSHOTS — replace each placeholder div with:
+    <img src="../../screenshots/your-image.png" alt="Screen name"
+         style="width:126px;height:220px;border-radius:16px;object-fit:cover;flex-shrink:0;">
+    Create a /screenshots/ folder in the project root and put your images there.
+  -->
+  <div class="screenshots-row">
+    <div class="screenshot-ph"><div class="ph-icon">📱</div><span>Home</span></div>
+    <div class="screenshot-ph"><div class="ph-icon">📱</div><span>Gameplay</span></div>
+    <div class="screenshot-ph"><div class="ph-icon">📱</div><span>Word match</span></div>
+    <div class="screenshot-ph"><div class="ph-icon">📱</div><span>Progress</span></div>
+    <div class="screenshot-ph"><div class="ph-icon">📱</div><span>Parent dash</span></div>
+  </div>
+  <p class="screenshot-note">← Replace with your actual app screenshots (see HTML comment above)</p>
+</div>
+
+<div class="section" style="padding-top:0;">
+  <div class="section-label">Pricing</div>
+  <div class="section-title">Learning packs</div>
+  <div class="packs-grid">
+    <div class="pack-card free-pack">
+      <span class="pack-badge badge-free">Free</span>
+      <h4>Starter Pack</h4>
+      <p>1 free learning pack included with every download. No payment required to get started.</p>
+      <div class="pack-price is-free">Free forever</div>
+    </div>
+    <div class="pack-card">
+      <span class="pack-badge badge-paid">In-App Purchase</span>
+      <h4>Additional Packs</h4>
+      <p>12 additional word packs available to purchase. Each pack adds new antonym sets and levels.</p>
+      <div class="pack-price is-paid">USD $1.99 each</div>
+    </div>
+  </div>
+  <p style="font-size:13px;color:var(--text-muted);margin-top:14px;line-height:1.7;">All purchases processed securely via Apple In-App Purchase. For refunds, contact Apple through your App Store purchase history.</p>
+</div>
+
+<div class="section" style="padding-top:0;">
+  <div class="privacy-strip">
+    <div class="icon">🔐</div>
+    <div>
+      <h4>Your child's privacy is our priority</h4>
+      <p>This app collects no personal data, uses no advertising SDKs, and stores all progress locally on your device only. Fully COPPA and GDPR-K compliant.
+      <a href="privacy-policy.html">Read our Privacy Policy →</a> &nbsp;·&nbsp;
+      <a href="terms-of-use.html">Terms of Use →</a></p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-left">
+    <img src="../../neura-mob-logo.png" alt="neura-mob" class="footer-logo" />
+    <span class="footer-copy">© 2026 Nadimbhai Sheikh, trading as neura-mob · Ahmedabad, India</span>
+  </div>
+  <div class="footer-links">
+    <a href="privacy-policy.html">Privacy policy</a>
+    <a href="terms-of-use.html">Terms of use</a>
+    <a href="../../contact.html">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>
